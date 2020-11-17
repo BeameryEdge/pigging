@@ -5,14 +5,9 @@ from pigging import Tracker, importConnectors, exportConnectors
 tracker = Tracker(log_path="./test.log", lock_path="./test.lock")
 tracker.startup()
 
-tracker.logger.info()
 
-import_conn = importConnectors(
-    "/home/sebastianmontero/Credentials/gcp_personal_sebastian.json"
-)
-export_conn = exportConnectors(
-    "/home/sebastianmontero/Credentials/gcp_personal_sebastian.json"
-)
+import_conn = importConnectors("./gcp_credentials.json")
+export_conn = exportConnectors("./gcp_credentials.json")
 # %%
 
 data = import_conn.google_big_query(
