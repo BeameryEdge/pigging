@@ -13,7 +13,7 @@ Pigging is a Python library created by Beamery's Edge team that helps building r
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pigging directly from Github.
 
 ```bash
-pip install pigging
+pip3 install git+https://github.com/BeameryEdge/pigging
 ```
 
 ### Requirements
