@@ -23,7 +23,7 @@ The repository also includes the `requirements.txt` file that includes the Pytho
 ### Tracking
 
 ```python
-from pigging import Tracker
+from pigging.tracker import Tracker
 
 LOG_PATH = "./log_file.log"
 LOCK_PATH = "./lock_file.lock"
@@ -49,7 +49,8 @@ tracker.close()
 Right now we have enabled Google BigQuery import and export connectors.
 
 ```python
-from pigging import importConnectors, exportConnectors
+from pigging.import_connectors import importConnectors
+from pigging.export_connectors import exportConnectors
 
 import_connector = importConnectors("./gcp_credentials.json")
 export_connector = exportConnectors("./gcp_credentials.json")
