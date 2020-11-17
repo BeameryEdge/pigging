@@ -14,6 +14,10 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pigging
 pip install git+https://github.com/BeameryEdge/pigging
 ```
 
+### Requirements
+
+The repository also includes the `requirements.txt` file that includes the Python dependencies for the the pigging package.
+
 ## Usage
 
 ### Tracking
