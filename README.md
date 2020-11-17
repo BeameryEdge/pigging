@@ -16,7 +16,7 @@ pip install git+https://github.com/BeameryEdge/pigging
 
 ### Requirements
 
-The repository also includes the `requirements.txt` file that includes the Python dependencies for the the pigging package.
+The repository also includes the `requirements.txt` file that includes the Python dependencies for the pigging package.
 
 ## Usage
 
