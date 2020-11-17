@@ -1,8 +1,7 @@
 # Pigging
 
-![](./coverage.svg)
-
 Pigging is a Python library created by Beamery's Edge team that helps building robust, reliable and scalable data engineering pipelines.
+![](./coverage.svg)
 
 #### About the name
 
