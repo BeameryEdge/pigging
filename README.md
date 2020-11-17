@@ -26,7 +26,7 @@ The repository also includes the `requirements.txt` file that includes the Pytho
 from pigging import Tracker
 
 LOG_PATH = "./log_file.log"
-LOCK_PATH = "./lock_file.log"
+LOCK_PATH = "./lock_file.lock"
 tracker = Tracker(log_path=LOG_PATH, lock_path=LOCK_PATH)
 
 # Create the log and lock files, and start timing the script
