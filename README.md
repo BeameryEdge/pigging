@@ -6,7 +6,7 @@ Pigging is a Python library created by Beamery's Edge team that helps building r
 
 > Pigging refers to the practice of using mechanical devices known as 'pigs' to perform maintenance operations in pipelines; scrubbing the insides of the lines in order to clean them. [Source](https://www.ftl.technology/news/engineering-news/what-is-pipeline-pigging-and-how-does-it-work#:~:text=Pigging%20refers%20to%20the%20practice,in%20order%20to%20clean%20them.)
 
-Testing coverage ![](./coverage.svg)
+![](./coverage.svg)
 
 ## Installation
 
