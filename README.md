@@ -32,7 +32,7 @@ LOCK_PATH = "./lock_file.lock"
 tracker = Tracker(log_path=LOG_PATH, lock_path=LOCK_PATH)
 
 # Create the log and lock files, and start timing the script
-tracker.startup()
+tracker.start()
 
 # Code block
 tracker.log("Printing hello world...", "INFO")
@@ -43,10 +43,10 @@ except Exception as e:
     tracker.log_exception(e)
 
 # Remove the lock file and log the script time
-tracker.close()
+tracker.stop()
 ```
 
-### Connectors
+<!-- ### Connectors
 
 Right now we have enabled Google BigQuery import and export connectors.
 
@@ -62,4 +62,4 @@ df = import_connector.google_big_query(QUERY, PROJECT_ID)
 
 # Export data
 export_connector.google_big_query(df, DESTINATION_TABLE, PROJECT_ID, IF_EXISTS)
-```
+``` -->
