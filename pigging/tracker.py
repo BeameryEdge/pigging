@@ -9,7 +9,7 @@ class Tracker(object):
         self.LOCK_PATH = lock_path
         self.script_start = datetime.utcnow()
 
-    def startup(self):
+    def start(self):
         if os.path.exists(self.LOCK_PATH):
             with open(self.LOG_PATH, "a") as myfile:
                 myfile.write(
@@ -52,7 +52,7 @@ class Tracker(object):
         raise Exception(exception)
         # os.sys.exit(1)
 
-    def close(self):
+    def stop(self):
         script_stop = datetime.utcnow()
         self.logger.info(
             f"TOTAL SCRIPT TIME: {script_stop - self.script_start}")
