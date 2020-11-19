@@ -10,7 +10,7 @@ tracker = Tracker(lock_path=LOCK_PATH, log_path=LOG_PATH)
 
 class TestTrackerStartup(object):
     def test_lock_file_created(self):
-        tracker.startup()
+        tracker.start()
         assert os.path.isfile(
             LOCK_PATH) == True, "The LOCK_PATH file should exist"
 
@@ -19,7 +19,7 @@ class TestTrackerStartup(object):
         os.remove(LOCK_PATH)
 
     def test_log_file_created(self):
-        tracker.startup()
+        tracker.start()
         assert os.path.isfile(
             LOG_PATH) == True, "The LOG_PATH file should exist"
 
@@ -28,9 +28,9 @@ class TestTrackerStartup(object):
         os.remove(LOCK_PATH)
 
     def test_script_locked_raises_exception(self):
-        tracker.startup()
+        tracker.start()
         with pytest.raises(Exception):
-            tracker.startup()
+            tracker.start()
 
         # Clean up
         os.remove(LOG_PATH)
@@ -39,8 +39,8 @@ class TestTrackerStartup(object):
 
 class TestTrackerClose(object):
     def test_lock_file_removed(self):
-        tracker.startup()
-        tracker.close()
+        tracker.start()
+        tracker.stop()
         assert os.path.isfile(
             LOCK_PATH) == False, "The LOCK_PATH file should be removed"
 
@@ -48,8 +48,8 @@ class TestTrackerClose(object):
         os.remove(LOG_PATH)
 
     def test_script_end_time_was_recorded(self):
-        tracker.startup()
-        tracker.close()
+        tracker.start()
+        tracker.stop()
         with open(LOG_PATH, 'r') as f:
             data = f.read()
             assert "TOTAL SCRIPT TIME" in data, "The LOG_PATH file should have TOTAL SCRIPT TIME after close"
@@ -60,7 +60,7 @@ class TestTrackerClose(object):
 
 class TestTrackerLog():
     def test_log_info(self):
-        tracker.startup()
+        tracker.start()
         tracker.log("This is an INFO log test", "INFO")
 
         with open(LOG_PATH, 'r') as f:
@@ -72,7 +72,7 @@ class TestTrackerLog():
         os.remove(LOCK_PATH)
 
     def test_log_warn(self):
-        tracker.startup()
+        tracker.start()
         warnings.filterwarnings("ignore", category=DeprecationWarning)
         tracker.log("This is a WARN log test", "WARN")
 
@@ -85,7 +85,7 @@ class TestTrackerLog():
         os.remove(LOCK_PATH)
 
     def test_log_error(self):
-        tracker.startup()
+        tracker.start()
         tracker.log("This is an ERROR log test", "ERROR")
 
         with open(LOG_PATH, 'r') as f:
@@ -97,7 +97,7 @@ class TestTrackerLog():
         os.remove(LOCK_PATH)
 
     def test_log_raises_exception(self):
-        tracker.startup()
+        tracker.start()
         with pytest.raises(Exception):
             tracker.log("This is a log test", "NOT A CATEGORY")
 
@@ -108,7 +108,7 @@ class TestTrackerLog():
 
 class TestTrackerLogException():
     def test_log_exception_raises_exception(self):
-        tracker.startup()
+        tracker.start()
         with pytest.raises(Exception):
             tracker.log_exception("This is an exception")
 
@@ -117,7 +117,7 @@ class TestTrackerLogException():
         os.remove(LOCK_PATH)
 
     def test_log_exception_logs_error(self):
-        tracker.startup()
+        tracker.start()
         try:
             tracker.log_exception("This is an exception")
         except Exception:

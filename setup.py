@@ -23,10 +23,10 @@ setuptools.setup(
     ],
     install_requires = [
         "google-auth>=1.23.0",
-"google-auth-oauthlib>=0.4.2",
-"pandas>=1.1.4",
-"pandas-gbq>=0.14.1",
-"retry>=0.9.2",
+        "google-auth-oauthlib>=0.4.2",
+        "pandas>=1.1.4",
+        "pandas-gbq>=0.14.1",
+        "retry>=0.9.2",
     ]
 )
 
