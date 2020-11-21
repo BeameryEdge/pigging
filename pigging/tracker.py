@@ -24,7 +24,7 @@ tracker.stop()
 
 
 class Tracker(object):
-    """Tracks creates a log and a lock file to track ETL activity and time.
+    """Creates a log and a lock file to track ETL activity and time.
 
     The Tracker will initalize with the location of a log file and a lock 
     file to be created when you start your script. Then you can use the
