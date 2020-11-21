@@ -34,6 +34,10 @@ We can use `tracker.start()` method to tell the Tracker we have started the ETL 
 2. Check if a log file exists. If there is no log file it will get created. If there is an old log file, it will remove it and create a clean one. We do this because the nature of this log files is to understand if there was a failure during the latest run.
 3. Start an internal timer.
 
+##### When do we lock a file?
+
+> During our experience we have found that locking files help avoid double runs in case of a critical failure. If the lock file exists after the scheduled run it means that something has failed. We can then leverage the logs to understand where was the error and what it was in order to maintain the script.
+
 #### Logging ETL activity
 
 We have also leveraged the `logging` library to track the activity across the ETL script. we can use `tracker.log("message")` to log activity at different point of the ETL script. We have also included the `tracker.log_exception(e)` method that will take in a `e` variable from a try catch exception to understand where our code fails.
