@@ -2,7 +2,7 @@
 
 # Pigging
 
-Pigging is a Python library created by Beamery's Edge team that helps building robust, reliable and scalable data engineering pipelines.
+Pigging is a Python library created by Beamery's Edge team that helps data engineers increase transparency and reliability when building ETL scripts.
 
 #### About the name
 
