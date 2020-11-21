@@ -34,13 +34,15 @@ tracker = Tracker(log_path=LOG_PATH, lock_path=LOCK_PATH)
 # Create the log and lock files, and start timing the script
 tracker.start()
 
+
 # Code block
 tracker.log("Printing hello world...", "INFO")
 try:
-    # Your code goes here!
+    # Your code here!
     print("Hello world!")
 except Exception as e:
     tracker.log_exception(e)
+
 
 # Remove the lock file and log the script time
 tracker.stop()
