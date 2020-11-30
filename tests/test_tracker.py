@@ -52,7 +52,7 @@ class TestTrackerClose(object):
         tracker.stop()
         with open(LOG_PATH, 'r') as f:
             data = f.read()
-            assert "TOTAL SCRIPT TIME" in data, "The LOG_PATH file should have TOTAL SCRIPT TIME after close"
+            assert "Stopped logging" in data, "The LOG_PATH file should have Stopped logging after close"
 
         # Clean up
         os.remove(LOG_PATH)

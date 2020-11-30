@@ -38,26 +38,7 @@ class googleBigQueryConnector(object):
         print("Successfully exported data to Google BigQuery")
 
 
-class salesforceConnector(object):
-    def __init__(self):
-        ...
-
-    def import_data(self):
-        ...
-
-
 class googleSheetsConnector(object):
-    def __init__(self):
-        ...
-
-    def import_data(self):
-        ...
-
-    def export_data(self):
-        ...
-
-
-class pendoConnector(object):
     def __init__(self):
         ...
 
