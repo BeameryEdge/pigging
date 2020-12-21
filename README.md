@@ -84,14 +84,13 @@ Note that the connectors make use of the `retry` modeule to enable a number of r
 gbq_connector = googleBigQueryConnector(CREDENTIALS_PATH)
 
 # Import data by refering to your project and using a SQL query
-QUERY = "SELECT * FROM table.data
+QUERY = "SELECT * FROM table.data"
 PROJECT = "my-project"
 df = gbq_connector.import_data(QUERY, PROJECT)
 
 
 # Export data by sending your Dataframe to a specific table destinantion
-gbq_connector.export_data(
-            df, "table.data", PROJECT, "EU", 'replace')
+gbq_connector.export_data(df, "table.data", PROJECT, "EU", 'replace')
 
 ```
 
@@ -103,8 +102,8 @@ Note that you have to share your service account to yout Google Sheets document 
 gsconnector = googleSheetsConnector(CREDENTIALS_PATH)
 
 # Export data by sending your Dataframe to a specific worksheet
-WORKSHEET="my-worksheet-id"
-WORKSHEET_NAME="Sheet1"
+WORKSHEET = "my-worksheet-id"
+WORKSHEET_NAME = "Sheet1"
 gs_connector.export_data(df, WORKSHEET_ID, WORKSHEET_NAME)
 
 
