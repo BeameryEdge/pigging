@@ -72,6 +72,39 @@ except Exception as e:
 tracker.stop()
 ```
 
-### Connectors (_Under development_)
+### Connectors
 
-The `Connectors` module allows users to connect to their desired data sources to import and export data leveraging built in API objects.
+The `Connectors` module allows users to connect to their desired data sources to import and export data leveraging built in API objects. At the moment we have created connectors for Google Big Query and Google Sheets. Both of these make use of the Google API and Google Service Account JSON files.
+
+Note that the connectors make use of the `retry` modeule to enable a number of retries or a wait time between these. By default both numbers are set to 3. This variable can be set when you initalise the object.
+
+#### Google Big Query example
+```py
+# Initialise the connector with the Service Account JSON file
+gbq_connector = googleBigQueryConnector(CREDENTIALS_PATH)
+
+# Import data by refering to your project and using a SQL query
+QUERY = "SELECT * FROM table.data
+PROJECT = "my-project"
+df = gbq_connector.import_data(QUERY, PROJECT)
+
+
+# Export data by sending your Dataframe to a specific table destinantion
+gbq_connector.export_data(
+            df, "table.data", PROJECT, "EU", 'replace')
+
+```
+
+#### Google Sheet example
+Note that you have to share your service account to yout Google Sheets document for the data export to work.
+
+```py
+# Initialise the connector with the Service Account JSON file
+gsconnector = googleSheetsConnector(CREDENTIALS_PATH)
+
+# Export data by sending your Dataframe to a specific worksheet
+WORKSHEET="my-worksheet-id"
+WORKSHEET_NAME="Sheet1"
+gs_connector.export_data(df, WORKSHEET_ID, WORKSHEET_NAME)
+
+
