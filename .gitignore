@@ -8,6 +8,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+set_env.sh
 
 # C extensions
 *.so
